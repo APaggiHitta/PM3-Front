@@ -95,7 +95,7 @@ const NavBar = () => {
                 <img
                   src={
                     user.photo
-                      ? `http://localhost:3000/uploads/${user.photo}`
+                      ? `http://https://pm3-production-4704.up.railway.app/uploads/${user.photo}`
                       : userAvatar
                   }
                   alt="Avatar usuario"
