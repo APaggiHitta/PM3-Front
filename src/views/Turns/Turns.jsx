@@ -9,12 +9,15 @@ import styles from "./Turns.module.css";
 import { UserContext } from "../../context/UserContext/UserContext";
 import { TurnsContext } from "../../context/TurnsContext/TurnsContext";
 
+import { FaThLarge, FaList } from "react-icons/fa";
+
 const Turns = () => {
   const { user } = useContext(UserContext);
   const { turns, setTurns } = useContext(TurnsContext);
   const navigate = useNavigate();
 
   const [filter, setFilter] = useState("Todas");
+  const [viewMode, setViewMode] = useState("cards");
 
   useEffect(() => {
     if (!user) {
@@ -74,6 +77,30 @@ const Turns = () => {
       ) : (
         <>
           <div className={styles.filterContainer}>
+            {[
+              {
+                mode: "cards",
+                icon: <FaThLarge size={18} />,
+                label: "Miniaturas",
+              },
+              { mode: "list", icon: <FaList size={18} />, label: "Lista" },
+            ].map(({ mode, icon, label }) => (
+              <button
+                key={mode}
+                onClick={() => setViewMode(mode)}
+                className={
+                  viewMode === mode
+                    ? `${styles.filterButton} ${styles.active}`
+                    : styles.filterButton
+                }
+                aria-label={`Vista en ${label.toLowerCase()}`}
+              >
+                {icon}
+              </button>
+            ))}
+          </div>
+
+          <div className={styles.filterContainer}>
             {["Todas", "Activas", "Canceladas", "Realizadas"].map((type) => (
               <button
                 key={type}
@@ -95,19 +122,36 @@ const Turns = () => {
             </p>
           )}
 
-          <div className={styles.turnsContainer}>
-            {filteredTurns.map((turn) => (
-              <div className={styles.turnCard} key={turn.id}>
-                <Turn
-                  id={turn.id}
-                  description={turn.activity.name}
-                  date={turn.date}
-                  time={turn.time}
-                  status={turn.status}
-                />
-              </div>
-            ))}
-          </div>
+          {viewMode === "cards" ? (
+            <div className={styles.turnsContainer}>
+              {filteredTurns.map((turn) => (
+                <div className={styles.turnCard} key={turn.id}>
+                  <Turn
+                    id={turn.id}
+                    description={turn.activity.name}
+                    date={turn.date}
+                    time={turn.time}
+                    status={turn.status}
+                  />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className={styles.turnsList}>
+              {filteredTurns.map((turn) => (
+                <div className={styles.turnListItem} key={turn.id}>
+                  <Turn
+                    id={turn.id}
+                    description={turn.activity.name}
+                    date={turn.date}
+                    time={turn.time}
+                    status={turn.status}
+                    viewMode={viewMode}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </>
       )}
     </div>

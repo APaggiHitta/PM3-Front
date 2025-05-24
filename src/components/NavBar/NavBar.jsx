@@ -4,9 +4,8 @@ import logoHamburguer from "../../assets/img/logoHamburguer.svg";
 import userAvatar from "../../assets/img/userAvatar.svg";
 import Menu from "../Menus/Menu";
 import { useState, useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext/UserContext";
-import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -96,7 +95,7 @@ const NavBar = () => {
                 <img
                   src={
                     user.photo
-                      ? `http://pm3-production-4704.up.railway.app/uploads/${user.photo}`
+                      ? `http://localhost:3000/uploads/${user.photo}`
                       : userAvatar
                   }
                   alt="Avatar usuario"

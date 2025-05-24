@@ -94,8 +94,6 @@
   background-color: #a4662f;
 }
 
-/* Responsive ajustes */
-
 @media (max-width: 768px) {
   .infoSection {
     flex-direction: column;

@@ -9,7 +9,7 @@ const ModalWindow = ({
   onConfirm,
   confirmText = "Sí",
   cancelText = "No",
-  loading = false, // 👈 nuevo prop
+  loading = false,
 }) => {
   return (
     <div className={styles.modalOverlay}>
@@ -17,9 +17,7 @@ const ModalWindow = ({
         <h3>{title}</h3>
         <p>{message}</p>
 
-        {loading && (
-          <div className={styles.spinner}></div> // 👈 animación si está cargando
-        )}
+        {loading && <div className={styles.spinner}></div>}
 
         {!loading && (
           <div className={styles.buttonGroup}>

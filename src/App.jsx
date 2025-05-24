@@ -12,17 +12,15 @@ function App() {
   return (
     <>
       <NavBar />
-      <div>
+      <div style={{ flex: 1 }}>
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
-
           <Route path="/home" element={<Home />} />
           <Route path="/turns" element={<Turns />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          {/* Falta about */}
         </Routes>
       </div>
       <Footer />

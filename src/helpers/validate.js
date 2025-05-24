@@ -29,7 +29,6 @@ export const validate = (fieldName, fieldValue, userData) => {
         const birthDate = new Date(fieldValue);
         const today = new Date();
 
-        // Validar que no sea una fecha futura
         if (birthDate > today) {
           errors.birthdate =
             "La fecha de nacimiento no puede estar en el futuro";
@@ -56,7 +55,7 @@ export const validate = (fieldName, fieldValue, userData) => {
         const selectedDate = new Date(year, month - 1, day);
 
         const today = new Date();
-        today.setHours(0, 0, 0, 0); // Elimina hora/minutos/segundos para comparar solo fechas
+        today.setHours(0, 0, 0, 0);
 
         if (selectedDate <= today) {
           errors.date = "Solo se permiten fechas a partir de mañana";

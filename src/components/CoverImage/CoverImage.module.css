@@ -1,27 +1,3 @@
-/* .container {
-  width: 100%;
-  height: 60vh;
-  position: relative;
-  overflow: hidden;
-}
-
-.image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  z-index: 0;
-}
-
-.active {
-  opacity: 1;
-  z-index: 1;
-} */
-
 .container {
   position: relative;
   width: 100vw;
@@ -56,7 +32,7 @@
 }
 
 .logoCircle {
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo negro con 60% de opacidad */
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 50%;
   padding: 8px;
   display: flex;
@@ -64,8 +40,8 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* Sombra suave */
-  backdrop-filter: blur(2px); /* Opcional: desenfoque del fondo detrás */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
 }
 .logoCircle img {
   width: 24px;
@@ -75,9 +51,7 @@
 .logo {
   width: 32px;
   height: 32px;
-  filter: drop-shadow(
-    0 0 2px rgba(0, 0, 0, 0.6)
-  ); /* Opcional: sombra para mejor visibilidad */
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
 }
 
 .logoWithText {

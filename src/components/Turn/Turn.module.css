@@ -7,7 +7,7 @@
   max-width: 400px;
   text-align: left;
 
-  height: 250px; /* altura fija */
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -64,7 +64,7 @@
 }
 
 .cancelButton:hover:enabled {
-  background-color: #f4a261; /* Nuevo color suave */
+  background-color: #f4a261;
 }
 
 .hidden {
@@ -94,4 +94,47 @@
 
 .completed {
   color: rgb(1, 56, 1) !important;
+}
+.listItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fffefc;
+  max-width: 800px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  gap: 20px;
+}
+
+.listItem > * {
+  width: 400px;
+  text-align: center;
+}
+
+.listItem h2 {
+  font-size: 12px;
+  margin-top: 10px;
+  color: #222;
+}
+
+.listItem h3,
+.listItem p {
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #333;
+}
+
+.listItem .cancelButton {
+  margin-top: 12px;
+  font-size: 12px;
+  padding: 6px 16px;
+  cursor: pointer;
 }

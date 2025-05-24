@@ -82,7 +82,7 @@ const AddTurn = ({ refreshTurns }) => {
       status: "active",
     };
 
-    setIsLoading(true); // Mostrar modal de carga
+    setIsLoading(true);
 
     try {
       await addTurn(turnPayload);
@@ -105,7 +105,7 @@ const AddTurn = ({ refreshTurns }) => {
       setModalMessage("Por favor, intenta nuevamente más tarde.");
       setShowModal(true);
     } finally {
-      setIsLoading(false); // Ocultar modal de carga
+      setIsLoading(false);
     }
   };
 

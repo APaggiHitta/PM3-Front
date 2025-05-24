@@ -19,7 +19,7 @@ import bg3 from "../../assets/img/backTurn/fondoTurn3.webp";
 import bg4 from "../../assets/img/backTurn/fondoTurn4.webp";
 import bg5 from "../../assets/img/backTurn/fondoTurn5.jpg";
 
-const Turn = ({ id, date, description, time, status }) => {
+const Turn = ({ id, date, description, time, status, viewMode }) => {
   const { updateTurnById } = useContext(TurnsContext);
   const [showModal, setShowModal] = useState(false);
 
@@ -48,7 +48,7 @@ const Turn = ({ id, date, description, time, status }) => {
   );
 
   const [year, month, day] = date.split("-").map(Number);
-  const activityAtMidnight = new Date(year, month - 1, day); // mes empieza en 0
+  const activityAtMidnight = new Date(year, month - 1, day);
 
   const timeDiff = activityAtMidnight - todayAtMidnight;
   const dayDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
@@ -75,10 +75,18 @@ const Turn = ({ id, date, description, time, status }) => {
 
   return (
     <div
-      className={`${styles.card} ${styles.cardBackground}`}
-      style={{
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.92), rgba(236, 141, 36, 0.6)), url(${randomImage})`,
-      }}
+      className={
+        viewMode === "list"
+          ? `${styles.listItem}`
+          : `${styles.card} ${styles.cardBackground}`
+      }
+      style={
+        viewMode === "list"
+          ? {}
+          : {
+              backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.92), rgba(236, 141, 36, 0.6)), url(${randomImage})`,
+            }
+      }
     >
       <h2 className={styles.turnTitle}>{description}</h2>
 

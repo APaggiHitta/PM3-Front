@@ -1,5 +1,3 @@
-/* === CLASES COMPARTIDAS (ya existentes, sin cambios importantes) === */
-
 .title {
   text-align: center;
   margin: 40px 0;
@@ -79,8 +77,6 @@
   display: block;
 }
 
-/* === MODAL === */
-
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -147,8 +143,6 @@
     opacity: 1;
   }
 }
-
-/* === ENLACES Y CHECKBOX === */
 
 .registerPrompt {
   text-align: center;
@@ -219,7 +213,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 900px; /* más ancho para 3 columnas */
+  max-width: 900px;
 }
 
 .inputDate {
